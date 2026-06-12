@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Panaszláda</title>
+
+    <link
+      href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <script src="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <img class="logo" src="/logo.png" />
+        <button id="new-report-btn">+ Új bejelentés</button>
+      </div>
+
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <h2>Új bejelentés</h2>
+
+          <form id="report-form">
+            <input id="title" placeholder="Cím" required />
+            <div class="counter">
+              <span id="title-counter">0 / 80</span>
+            </div>
+
+            <select id="category" required>
+              <option value="">Kategória kiválasztása</option>
+              <option value="homeless">Hajléktalanság</option>
+              <option value="safety">Közbiztonság</option>
+              <option value="infrastructure">Infrastruktúra</option>
+              <option value="other">Egyéb</option>
+            </select>
+
+            <textarea
+              id="desc"
+              placeholder="Leírás"
+              maxlength="1000"
+              required
+            ></textarea>
+            <div class="counter">
+              <span id="desc-counter">0 / 1000</span>
+            </div>
+
+            <div id="picker-map" class="map"></div>
+
+            <button type="submit" id="submit-btn">Mentés</button>
+            <button type="button" onclick="closeModal()">Mégse</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="public-map" class="map"></div>
+
+      <h2>Bejelentések</h2>
+
+      <div id="status"></div>
+
+      <div id="list"></div>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script defer src="/main.js"></script>
+  </body>
+</html>

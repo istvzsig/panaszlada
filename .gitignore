@@ -1,0 +1,47 @@
+# Binaries
+/bin/
+/build/
+/*.exe
+/*.exe~
+/*.dll
+/*.so
+/*.dylib
+
+# Go build outputs
+*.test
+*.out
+
+# Vendor
+/vendor/
+
+# Go workspace and module files (if you want to ignore modules cache)
+# Leave go.mod and go.sum tracked; ignore module cache
+GOMODCACHE/
+
+# IDEs / editors
+.vscode/
+.idea/
+*.iml
+
+# macOS
+.DS_Store
+
+# Linux
+*~
+
+# Windows
+Thumbs.db
+
+# Logs
+*.log
+
+# Environment files
+.env
+.env.local
+
+# Generated files
+*.prof
+coverage.out
+
+# Temporary
+tmp/
