@@ -1,0 +1,133 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Panaszláda</title>
+
+    <link
+      href="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.css"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="/styles.css" />
+
+    <script src="https://unpkg.com/maplibre-gl@5.6.2/dist/maplibre-gl.js"></script>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="header">
+        <div style="display: flex; align-items: center; gap: 32px">
+          <img class="logo" src="/logo.png" />
+          <h1>Panaszláda</h1>
+        </div>
+        <button id="new-report-btn">+ Új bejelentés</button>
+      </div>
+
+      <!-- <div class="hero">
+        <h1>Panaszláda</h1>
+        <p>
+          Közösségi bejelentő platform Magyarország számára.<br />
+          Jelents problémákat a térképen - infrastruktúra, biztonság, szociális
+          ügyek, etc...
+        </p> -->
+
+      <!-- <div class="hero-meta">
+          <span>🟢 Open civic tool</span>
+          <span>📍 Hungary only</span>
+          <span>⚡ Real-time reports</span>
+        </div> -->
+
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <h2>Új bejelentés</h2>
+
+          <form id="report-form">
+            <input id="title" placeholder="Cím" required />
+            <div class="counter">
+              <span id="title-counter">0 / 80</span>
+            </div>
+
+            <select id="category" required>
+              <option value="">Kategória kiválasztása</option>
+              <option value="homeless">Hajléktalanság</option>
+              <option value="safety">Közbiztonság</option>
+              <option value="infrastructure">Infrastruktúra</option>
+              <option value="other">Egyéb</option>
+            </select>
+
+            <textarea
+              id="desc"
+              placeholder="Leírás"
+              maxlength="1000"
+              required
+            ></textarea>
+            <div class="counter">
+              <span id="desc-counter">0 / 1000</span>
+            </div>
+
+            <div id="picker-map" class="map"></div>
+
+            <button type="submit" id="submit-btn">Mentés</button>
+            <button type="button" id="close-modal-btn">Mégse</button>
+          </form>
+        </div>
+      </div>
+
+      <div class="about">
+        <h2>
+          A Panaszláda egy nyílt forráskódú civic platform, ahol bárki anonim
+          módon jelenthet közterületi problémákat.
+        </h2>
+
+        <!-- <p>
+          A cél: átláthatóbb városi információs rendszer, valós idejű
+          bejelentésekkel.
+        </p> -->
+      </div>
+
+      <div id="public-map" class="map"></div>
+
+      <h2>Bejelentések</h2>
+
+      <div id="status"></div>
+
+      <div id="list"></div>
+
+      <div class="donate">
+        <h3>Támogatsd a projektet:</h3>
+
+        <a href="https://revolut.me/istvnfuq" target="_blank">
+          ☕ Donate via Revolut
+        </a>
+      </div>
+
+      <div class="donate-secondary">
+        <p>Crypto (opcionális):</p>
+        <p>ETH: 0xb2f29c730B8D4660a871D3c51f2FF1b58f27256f</p>
+      </div>
+
+      <footer class="footer">
+        <div><strong>Panaszláda</strong> © 2026</div>
+
+        <div>
+          Built by <a target="_blank" href="https://github.com/istvzsig">J1N</a>
+        </div>
+
+        <div>
+          <a target="_blank" href="https://github.com/istvzsig/panaszlada"
+            >GitHub</a
+          >
+          ·
+          <a target="_blank" href="#"><strike>API Docs</strike></a>
+        </div>
+
+        <!-- <div class="small">Go · PostgreSQL · MapLibre GL</div> -->
+      </footer>
+    </div>
+
+    <div id="toast-container"></div>
+
+    <script defer type="module" src="/app.js"></script>
+  </body>
+</html>
